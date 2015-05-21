@@ -1,0 +1,38 @@
+.container {
+	max-width:600px;
+}
+
+.task-inputer {
+	width:80%;
+}
+
+.form-inline .form-control {
+	width:100%;
+}
+
+.checker {
+	color:green;
+	cursor:pointer;
+}
+
+.completed .checker {
+	color: #bfbfbf;
+}
+
+.closer{
+	color: #cfcfcf;
+	cursor:pointer;
+}
+
+span.task-name {
+	margin-left:10px;
+}
+
+.completed span.task-name {
+	color:#afafaf;
+	text-decoration: line-through;
+}
+
+footer {
+	margin:20px 0;
+}

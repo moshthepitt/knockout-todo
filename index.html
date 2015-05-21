@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Knockout.js TODO Application</title>
+
+    <!-- Bootstrap core CSS -->
+    <link type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link type="text/css" href="css/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="container">
+
+      <div class="page-header">
+        <h1>TODO Application</h1>
+        <p>You've <span class="tasks-left" data-bind="text: completedTasksNumber" > </span> tasks to do</p>
+      </div>
+
+      <section id="input-container">
+        <form action=""  class="form-inline">
+          <div class="form-group task-inputer">
+            <input type="text" class="form-control" name="task-input" id="task-input" placeholder="What needs to be done?" data-bind="value: newTask" />
+          </div>
+          <input type="submit" data-bind="click: addTask" class="btn btn-primary">
+        </form>
+      </section>
+
+      <section id="task-container">
+        <h2>Tasks</h2>
+
+        <div><button class="btn btn-small btn-default" data-bind="click: markAllDone">Mark all as done</button></div><br>
+
+        <div>
+          <ul class="list-group" data-bind="foreach: chosenViewData">
+            <li class="list-group-item" data-bind=" css: { completed: completion() == true}">
+              <span class="checker glyphicon glyphicon-ok" data-bind="click: completeTask"></span>
+              <span class="task-name" data-bind="text: task"></span>
+              <span class="closer glyphicon glyphicon-remove pull-right" data-bind="click: $root.removeTask" aria-hidden="true"></span>
+            </li>
+          </ul>
+        </div>
+        <div data-bind="foreach: views">
+          <button class="btn btn-small btn-default" data-bind="text: $data, 
+                  css: { selected: $data == $root.chosenViewId() },
+                  click: $root.goToView"></button>
+        </div>
+      </section>
+
+      <footer>
+        Created by moshthepitt
+      </footer>
+    </div> <!-- /container -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sammy.js/0.7.6/sammy.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script type="text/javascript" src="js/ie10-viewport-bug-workaround.js"></script>
+    <script type="text/javascript" src="js/scripts.js"></script>
+  </body>
+</html>
